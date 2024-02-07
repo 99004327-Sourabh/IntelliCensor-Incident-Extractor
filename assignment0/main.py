@@ -50,7 +50,7 @@ def extract_incidents(pdf_path):
 # Function to create the SQLite database
 def create_db():
     # Define the database path
-    db_path = os.path.join('resources', 'normandb.db')
+    db_path = os.path.join('resources', 'normanpd.db')
 
     if os.path.exists(db_path):
         os.remove(db_path)
