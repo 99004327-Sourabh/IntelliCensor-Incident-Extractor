@@ -8,6 +8,7 @@ import os
 # Function to download the PDF file
 def fetch_incidents(url):
     response = urllib.request.urlopen(url)
+    print(url.split("/")[-1])
     file = response.read()
     pdf_path = '/tmp/incident_report.pdf'  # Temporary file path
     with open(pdf_path, 'wb') as f:
