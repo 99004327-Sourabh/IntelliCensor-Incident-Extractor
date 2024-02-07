@@ -34,5 +34,8 @@ The SQLite database is created with a single table named 'incidents'. Each row i
 - The `print_nature_counts` function assumes that the database has been populated with incidents.
 
 ## Demo
-!Demo video
+You can view a demo of the project here.
+Link to Google Drive File: https://drive.google.com/file/d/1de5Q1cc2FgFH-NPSSGN2mP0SuSYovPQR/view?usp=drive_link
+
 # cis6930sp24-assignment0
+
