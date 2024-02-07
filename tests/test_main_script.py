@@ -5,7 +5,7 @@ from assignment0.main import extract_incidents, create_db, populate_db, print_na
 
 class TestMainScript(unittest.TestCase):
     def setUp(self):
-        self.test_pdf_path = "/Users/sourabhrajashekar/Desktop/cis6930sp24-assignment0/ex.pdf"  # Replace with your file path
+        self.test_pdf_path = "tests/ex.pdf"  # Replace with your file path
 
     def test_extract_incidents(self):
         # Test the extract_incidents function
