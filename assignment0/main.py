@@ -37,12 +37,13 @@ def extract_incidents(pdf_path):
             location_text = page.get_text("text", clip=rect_location).strip()
             nature_text = page.get_text("text", clip=rect_nature).strip()
             ori = page.get_text("text", clip=rect_ori).strip()
-            print(date_time_text, incident_number_text, location_text, nature_text, ori)
-            #
-            if date_time_text and incident_number_text and location_text and nature_text:
+
+            # if date_time_text and incident_number_text and location_text and nature_text:
+            if location_text.find("NORMAN POLICE DEPAR") == -1 and location_text.find("Daily Incident Summary") == -1:
                 incidents.append((date_time_text, incident_number_text, location_text, nature_text,
-                                  ""))  # "" as placeholder for incident_ori
-    print(incidents)
+                                  ori))  # "" as placeholder for incident_ori
+    if len(incidents) > 0:
+        incidents.pop(len(incidents)-1)
     return incidents
 
 
@@ -86,7 +87,7 @@ def populate_db(conn, incidents):
 # Function to print nature counts
 def print_nature_counts(conn):
     c = conn.cursor()
-    c.execute("SELECT nature, COUNT(nature) FROM incidents GROUP BY nature ORDER BY COUNT(nature) DESC, nature")
+    c.execute("SELECT nature, COUNT(nature) FROM incidents GROUP BY nature ORDER BY CASE WHEN nature = '' THEN 1 ELSE 0 END, COUNT(nature) DESC, nature")
     for row in c.fetchall():
         print(f"{row[0]}|{row[1]}")
 
