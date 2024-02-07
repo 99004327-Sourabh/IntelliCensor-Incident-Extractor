@@ -40,9 +40,10 @@ def extract_incidents(pdf_path):
             ori = page.get_text("text", clip=rect_ori).strip()
 
             # if date_time_text and incident_number_text and location_text and nature_text:
-            if location_text.find("NORMAN POLICE DEPAR") == -1 and location_text.find("Daily Incident Summary") == -1:
+            if date_time_text.find("Date / Time") == -1 and location_text.find("NORMAN POLICE DEPAR") == -1 and location_text.find("Daily Incident Summary") == -1:
                 incidents.append((date_time_text, incident_number_text, location_text, nature_text,
                                   ori))  # "" as placeholder for incident_ori
+
     if len(incidents) > 0:
         incidents.pop(len(incidents)-1)
     return incidents
