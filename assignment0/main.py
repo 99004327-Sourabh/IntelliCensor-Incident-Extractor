@@ -88,7 +88,8 @@ def populate_db(conn, incidents):
 # Function to print nature counts
 def print_nature_counts(conn):
     c = conn.cursor()
-    c.execute("SELECT nature, COUNT(nature) FROM incidents GROUP BY nature ORDER BY CASE WHEN nature = '' THEN 1 ELSE 0 END, COUNT(nature) DESC, nature")
+    # Removed the CASE statement from the ORDER BY clause
+    c.execute("SELECT nature, COUNT(nature) FROM incidents GROUP BY nature ORDER BY COUNT(nature) DESC, nature")
     for row in c.fetchall():
         print(f"{row[0]}|{row[1]}")
 
