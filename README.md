@@ -3,8 +3,8 @@
 ## Name
 Sourabh Rajashekar
 
-## Assignment Description
-This assignment involves writing a Python script to fetch a PDF file, extract incident data from the PDF, create a SQLite database, populate the database with the incidents, and then print counts of different types of incidents.
+## Description
+This Project involves writing a Python script to fetch a PDF file, extract incident data from the PDF, create a SQLite database, populate the database with the incidents, and then print counts of different types of incidents.
 
 ## How to install
 To install the necessary dependencies, run the following command:
