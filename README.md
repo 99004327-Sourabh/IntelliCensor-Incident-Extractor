@@ -1,4 +1,4 @@
-## IntelliCensor Incident Extractor
+### IntelliCensor Incident Extractor
 
 ## Name
 Sourabh Rajashekar
